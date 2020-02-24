@@ -18,7 +18,7 @@ Balloon = function()
     {
         constructor() 
         {
-            this.radius = 40;
+            this.radius = 30;
             this.x = Math.random() * (window.innerWidth - this.radius * 2) + this.radius;
             this.y = Math.random() * (window.innerHeight - this.radius * 2) + this.radius;
             this.dx = (Math.random() - 0.5) * 5;
@@ -54,7 +54,7 @@ Balloon = function()
 
     let circleArray = [];
     let squareArray = [];
-    for (let i = 0; i < 100; i++) 
+    for (let i = 0; i < 75; i++) 
     {
         circleArray.push(new Circle());
     }
