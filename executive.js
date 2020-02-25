@@ -6,5 +6,5 @@ let c = canvas.getContext('2d');
 
 
 
-Chaos();
-//Balloon();
+//Chaos();
+Balloon();
