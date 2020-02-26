@@ -1,74 +1,76 @@
-Balloon = function() 
+Balloon = function()
 {
-    
-    let mouse = 
+    let minRadius = Math.floor(window.innerWidth / 15);
+    let colorArray = [
+        '#2DDFFF',
+        '#F5F474',
+        '#E33CC7',
+        '#FFAA47',
+        '#F54D28'];
+
+
+    class Circle
     {
-        x: undefined,
-        y: undefined
-    }
-    window.addEventListener('mousemove', 
-        function(e) 
+        constructor()
         {
-            mouse.x = e.x;
-            mouse.y = e.y;
-        }
-    );
-    
-    class Circle 
-    {
-        constructor() 
-        {
-            this.radius = 30;
+            this.radius = 40;
             this.x = Math.random() * (window.innerWidth - this.radius * 2) + this.radius;
             this.y = Math.random() * (window.innerHeight - this.radius * 2) + this.radius;
             this.dx = (Math.random() - 0.5) * 5;
             this.dy = (Math.random() - 0.5) * 5;
+            this.color = c.fillStyle = colorArray[Math.floor(Math.random() * colorArray.length)];
         }
-        
-        draw() 
+
+        draw()
         {
             c.beginPath();
             c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-            c.stroke();
+            c.fillStyle = this.color;
             c.fill();
         }
-        
-        update() 
+
+        update()
         {
             if (this.x + this.radius >= window.innerWidth || this.x - this.radius <= 0) this.dx = -this.dx;
             if (this.y + this.radius >= window.innerHeight || this.y - this.radius <= 0) this.dy = -this.dy;
-            
+
             this.x += this.dx;
             this.y += this.dy;
-           
+
             //interactivity
             if (mouse.x - this.x < this.radius && mouse.x - this.x > -this.radius
                 && mouse.y - this.y < this.radius && mouse.y - this.y > -this.radius)
             {
                 this.radius += 1;
-            } 
-            
+            }
+            else if (this.radius > minRadius)
+            {
+                this.radius -= 1;
+            }
+
             this.draw();
         }
     }
 
     let circleArray = [];
     let squareArray = [];
-    for (let i = 0; i < 75; i++) 
+    for (let i = 0; i < Math.floor(window.innerWidth / 18); i++)
     {
         circleArray.push(new Circle());
     }
 
 
-    function animate() 
+    function animate()
     {
         requestAnimationFrame(animate);
         c.clearRect(0, 0 , window.innerWidth, window.innerHeight);
-        for (let i = 0; i < circleArray.length; i++) 
+        c.fillStyle = '#4d004d';
+        c.fillRect(0, 0, innerWidth, innerHeight);
+        for (let i = 0; i < circleArray.length; i++)
         {
             circleArray[i].update();
         }
     }
-    console.log(circleArray);
+    console.log(window.innerWidth);
     animate();
 }
