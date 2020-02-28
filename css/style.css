@@ -4,6 +4,7 @@ body
     margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
+    background: #fffaf0;
 }
 canvas {
     display: block;
@@ -19,21 +20,21 @@ button {
     position: absolute;
 }
 
-canvas {
-    position: absolute;
-    z-index: -1;
-}
-
 .orbit {
     text-align: center;
+    background: #fffaf0;
 }
 
 .worms {
     text-align: center;
+    background: black;
+    color:#fffaf0;
 }
 
 .balloon {
     text-align: center;
+    background: black;
+    color: #fffaf0;
 }
 
 img {
@@ -42,12 +43,24 @@ img {
     padding: 1em;
     border-radius: 1.5em;
 }
-
+h3 {
+    text-align: center;
+    margin: 0;
+    padding-top: 1em;
+}
 @media (min-width: 930px)
 {
     h1 {
         text-align: left;
         padding: 1em;
+    }
+
+    h3 {
+        padding-top: 0;
+        position: absolute;
+        margin-top: 3em;
+        text-align: left;
+        padding: 0 2em;
     }
     img {
         height: 50%;
@@ -60,5 +73,10 @@ img {
     img {
         height: 33%;
         width: 33%;
+    }
+    h3 {
+        margin-top: 4em;
+        padding: 0 5em;
+        font-size: 1.5em;
     }
 }

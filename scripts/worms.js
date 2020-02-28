@@ -3,8 +3,8 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 let c = canvas.getContext('2d');
 
-c.fillStyle = '#FFE05B';
-c.fillRect(0, 0, canvas.width, canvas.height);
+// c.fillStyle = '#FFE05B';
+// c.fillRect(0, 0, canvas.width, canvas.height);
 
 let mouse = 
 {
@@ -38,7 +38,7 @@ Worms = function()
     {
         constructor() 
         {
-            this.radius = 40;
+            this.radius = Math.floor(canvas.width / 60);
             this.x = Math.random() * (window.innerWidth - this.radius * 2) + this.radius;
             this.y = Math.random() * (window.innerHeight - this.radius * 2) + this.radius;
             this.dx = (Math.random() - 0.5) * 5;
@@ -68,7 +68,7 @@ Worms = function()
 
     let circleArray = [];
     
-    for (let i = 0; i < innerWidth / 60; i++) 
+    for (let i = 0; i < 60; i++) 
     {
         circleArray.push(new Circle());
     }

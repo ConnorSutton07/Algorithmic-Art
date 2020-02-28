@@ -10,7 +10,7 @@ let mouse =
     y: undefined
 }
 
-let isPopped = false;
+let isClicked = false;
 
 window.addEventListener('mousemove', 
     function(e) 
@@ -26,10 +26,11 @@ window.addEventListener('resize', () =>
     canvas.height = window.innerHeight;
 });
 
-window.addEventListener('mousedown', ()=> { isPopped = true; });
+window.addEventListener('mousedown', ()=> { isClicked = true; });
+window.addEventListener('mouseup', () => { isClicked = false; });
 
 
-//make game - pop as many balloons as you can in 10 seconds
+//make game - pop all the balloons in a certain amount of time, gets harder each level -- more balloons, less time, etc.
 
 
 Balloon = function()
@@ -55,7 +56,7 @@ Balloon = function()
             this.dy = (Math.random() - 0.5) * 5;
             this.color = c.fillStyle = colorArray[Math.floor(Math.random() * colorArray.length)];
             this.popped = false;
-            this.isMouse = false;
+            this.hasMouse = false;
         }
 
         draw()
@@ -81,17 +82,17 @@ Balloon = function()
                     && mouse.y - this.y < this.radius && mouse.y - this.y > -this.radius)
                 {
                     this.radius += 1;
-                    this.isMouse = true;
+                    this.hasMouse = true;
                     console.log("balloon at" + this.index + " should be popped.");
                 }
                 else if (this.radius > minRadius)
                 {
                     this.radius -= 1;
-                    this.isMouse = false;
+                    this.hasMouse = false;
                 }
                 else 
                 {
-                    this.isMouse = false;
+                    this.hasMouse = false;
                 }
 
                 this.draw();
@@ -119,10 +120,10 @@ Balloon = function()
 
         for (let i = 0; i < circleArray.length; i++)
         {
-            if (circleArray[i].isMouse && isPopped && !circleArray[i].popped)
+            if (circleArray[i].hasMouse && isClicked && !circleArray[i].popped)
             {
                 circleArray[i].popped = true;
-                isPopped = false;
+                isClicked = false;
             }
         }
     }

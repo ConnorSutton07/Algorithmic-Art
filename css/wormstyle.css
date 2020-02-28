@@ -1,5 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap');
+
 body, canvas, html{margin:0;padding:0;border:0 none;}
 
+a {
+    position: absolute;
+    z-index: 1;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    color: #1f1502;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.5em 0.5em;
+}
 canvas {
     display: block;
+    position: absolute;
+    z-index: -1;
 }
