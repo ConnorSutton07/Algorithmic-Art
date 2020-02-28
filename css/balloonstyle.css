@@ -1,0 +1,5 @@
+body, canvas, html{margin:0;padding:0;border:0 none;}
+
+canvas {
+    display: block;
+}
