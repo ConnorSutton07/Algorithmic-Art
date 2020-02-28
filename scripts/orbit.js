@@ -29,11 +29,11 @@ Orbit = function()
 {
     const num_particles = Math.floor(window.innerHeight / 6);
     const colors = [
-        '#FF94D0',
-        '#D6C8E8',
-        '#B6CFFF',
-        '#90E8DD',
-        '#9DFFA2'];
+        '#DA3761',
+        '#A42481',
+        '#793089',
+        '#3B3B91',
+        '#E44048'];
     
     //Utility Functions
     function randomIntFromRange(min, max)
