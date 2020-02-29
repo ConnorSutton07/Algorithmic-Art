@@ -28,6 +28,8 @@ window.addEventListener('resize', () =>
 
 window.addEventListener('mousedown', ()=> { isClicked = true; });
 window.addEventListener('mouseup', () => { isClicked = false; });
+window.addEventListener('touchstart', ()=> { isClicked = true; });
+window.addEventListener('touchend', () => { isClicked = false; });
 
 
 //make game - pop all the balloons in a certain amount of time, gets harder each level -- more balloons, less time, etc.
