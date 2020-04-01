@@ -11,7 +11,7 @@ let mouse =
 }
 
 let isClicked = false;
-
+let isPointer = false;
 window.addEventListener('mousemove', 
     function(e) 
     {
@@ -85,6 +85,7 @@ Balloon = function()
                 {
                     this.radius += 1;
                     this.hasMouse = true;
+                    isPointer = true;
                     console.log("balloon at" + this.index + " should be popped.");
                 }
                 else if (this.radius > minRadius)
@@ -111,6 +112,10 @@ Balloon = function()
 
     function animate()
     {
+        if (isPointer == true) document.body.style.cursor = 'pointer';
+        else document.body.style.cursor = 'default';
+        isPointer = false;
+
         requestAnimationFrame(animate);
         c.clearRect(0, 0 , window.innerWidth, window.innerHeight);
         c.fillStyle = '#4d004d';
@@ -128,8 +133,9 @@ Balloon = function()
                 isClicked = false;
             }
         }
+        isClicked = false;
+        
     }
-    console.log(window.innerWidth);
     animate();
 }
 
