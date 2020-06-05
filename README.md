@@ -1,1 +1,1 @@
-This is a showcase of some random visual effects for fun!
+This is a website showcasing some random visual effects for fun!
